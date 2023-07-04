@@ -1,0 +1,67 @@
+/*favicon*/
+.header-cell:nth-child(1) {
+    margin-right: auto;
+}
+
+.favicon {
+    width: 2.5rem;
+    margin: 1rem 1rem 0 0;
+}
+
+/*font switcher*/
+.option {
+    background-color: #cecedf;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 7px;
+}
+
+/* toggle switch */
+#theme-toggle {
+    margin-inline: 0.5rem;
+}
+
+#switch-cell {
+    --width: 3rem;
+    --height: 1.5rem;
+    width: var(--width);
+    height: var(--height);
+    /* border: 1px solid black; */
+    display: block;
+    border-radius: calc(var(--height) * 0.5);
+    position: relative;
+    background-color: rgb(99, 99, 97);
+
+}
+
+#switch-cell::before {
+    content: "";
+    width: calc(var(--height) - 0.4rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    inset: 0;
+    margin: auto 0;
+    background-color: whitesmoke;
+    left: 0.25rem;
+    transition: all 500ms;
+}
+
+/* #switch-cell::after {
+    content: url(../../assets/icons8-moon-24.png);
+    position: absolute;
+    right: -1.9rem;
+    top: -0.15rem;
+} */
+
+#switch {
+    display: none;
+}
+
+#switch:checked+#switch-cell::before {
+    left: calc(var(--width) - var(--height) + 0.25rem);
+}
+
+#switch:checked+#switch-cell {
+    background-color: rgb(167, 41, 206);
+}

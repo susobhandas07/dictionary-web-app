@@ -1,0 +1,73 @@
+.search-wrapper {
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.2rem 2rem;
+    background-color: rgb(235, 226, 226);
+    padding: 0.8rem;
+    border-radius: 12px;
+}
+
+/* input field */
+#word {
+    width: 100%;
+    font-size: 1.2em;
+    border: none;
+    background: transparent;
+    /* text-align: center; */
+    font-weight: 500;
+}
+
+#word:focus {
+    outline: none;
+}
+
+#word::placeholder {
+    color: rgb(175, 166, 166);
+    font-weight: normal;
+}
+
+/* search button */
+#search-btn {
+    align-self: flex-end;
+    width: fit-content;
+    border: none;
+    background: transparent;
+}
+
+#search-icon {
+    width: 1.5rem;
+}
+
+/*body */
+/* h4 {
+    font-weight: bold;
+} */
+
+ul {
+    list-style-type: none;
+}
+
+.li-item {
+    justify-content: normal !important;
+}
+
+.li-item::before {
+    content: "\2022";
+    color: rgb(167, 41, 206);
+    font-size: 1.2em;
+    margin-right: 1rem;
+    top: 0.2rem;
+}
+
+.line {
+    content: "";
+    border-bottom: 1px solid grey;
+    opacity: 0.3;
+    width: 100%;
+    margin-left: 2rem;
+    margin-top: 0.1rem;
+}
+
+.fade {
+    opacity: 0.5;
+}
