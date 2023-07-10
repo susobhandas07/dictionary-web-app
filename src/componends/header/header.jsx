@@ -11,6 +11,12 @@ import './header.css'
 
 export default function main() {
 
+    const [font, setFont] = useState("Serif");
+
+    const changeFont = ({ value }) => {
+        setFont(value);
+        //change body font
+    }
 
     return (
         <header className="header flex">
@@ -22,7 +28,7 @@ export default function main() {
             </section>
 
             <section className="header-cell" id="font-switcher">
-                <select name="font" id="font font-select" className="option hover-pointer" title="Font">
+                <select name="font" id="font font-select" className="option hover-pointer" title="Font" value={font} onChange={(e) => setFont(e.target.value)}>
                     <option value="serif" >Serif</option>
                     <option value="arial" >Arial</option>
                 </select>
@@ -32,7 +38,7 @@ export default function main() {
                 <Picture imgSrc={SunIconActive} mediaSrc={SunIcon} />
 
                 <input type="checkbox" name="switch" id="switch"
-                // checked={checked}
+                // checked={}
                 // onChange={handleChange}
                 />
                 <label htmlFor="switch" id='switch-cell' title='Night mode' className="hover-pointer"></label>

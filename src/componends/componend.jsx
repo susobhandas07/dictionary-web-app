@@ -1,21 +1,9 @@
-import test from '../assets/icons8-book-50.png'
-function create(type = "p", child = null, childType = "text", classes = [], id = "") {
-    const node = document.createElement(type);
-    for (let char of classes) {
-        node.classList.add(char);
-    }
-    if (child) {
-        childType === 'html' ? node.innerHTML = child : node.innerText = child;
-    }
-    id && node.setAttribute('id', id);
-    return node;
+const Line = ({ ...props }) => {
+    return (<div className='line' {...props}></div>);
 }
 
-function bind(parent, ...children) {
-    for (let child of children) {
-        parent.appendChild(child);
-    }
-    return null;
+const ListItem = ({ children, ...props }) => {
+    return (<li className='flex li-item' {...props}>{children}</li>)
 }
 
 const Picture = ({ imgSrc, mediaSrc, ...props }) => {
@@ -28,4 +16,57 @@ const Picture = ({ imgSrc, mediaSrc, ...props }) => {
     )
 }
 
-export { create, bind, Picture };
+const Phonetic = ({ text, audio, ...props }) => {
+    return (
+        <>
+            <p>{text}</p>
+            <audio controls {...props}>
+                <source src={audio} type="audio/mpeg" />
+                Your borwser does not support audio playback
+            </audio >
+        </>
+    );
+}
+
+const Meaning = ({ pos, listItems, ...props }) => {
+    return (
+        <section {...props}>
+            <section className='flex'>
+                <h3>{pos}</h3>
+                <Line />
+            </section>
+            <span className='fade'>Meaning</span>
+            <ul>
+                {listItems.map((item, index) => <ListItem children={item["definition"]} key={index} />)}
+            </ul>
+        </section>
+    )
+}
+
+const Body = ({ data }) => {
+    let phonetics = <></>;
+    for (let i = 0; i < data['phonetics'].length; i++) {
+        if (data["phonetics"][i]['audio']) {
+            phonetics =
+                <>
+                    <Phonetic text={data['phonetics'][i]['text']} audio={data['phonetics'][i]['audio']} key={data['word']} />
+                </>
+            break;
+        }
+    }
+    return (
+        <div id='canvas'>
+            <h1>{data['word']} </h1>
+            {phonetics}
+            <section>
+                {data['meanings'].map((val, index) => <Meaning pos={val['partOfSpeech']} listItems={val['definitions']} key={index} />)}
+            </section>
+            <section>
+                <span className='fade'>Source</span>
+                <a style={{ color: "var(--link-color)" }} href={`https://en.wiktionary.org/wiki/${data['word']}`} target="_blank" >https://en.wikionary.org/wiki/{data['word']}</a>
+            </section>
+        </div>
+    )
+}
+
+export { Picture, Body };

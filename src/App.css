@@ -1,12 +1,14 @@
 :root {
     --option: #cecedf;
     --input-box: rgb(235, 226, 226);
+    --link-color: #8c7cd9;
 }
 
 @media (prefers-color-scheme:dark) {
     :root {
         --option: #404042;
         --input-box: rgb(49, 46, 46);
+        --link-color: #aa9cdd;
     }
 }
 
