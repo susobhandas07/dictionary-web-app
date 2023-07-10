@@ -1,9 +1,8 @@
 import { useState } from "react";
 import './body.css'
 import SearchIcon from '../../assets/icons8-search-50.png';
-import { create, bind, Body } from "../componend";
+import { Body } from "../componend";
 
-const buffer = {};
 
 export default function main() {
     const [data, setData] = useState({});
