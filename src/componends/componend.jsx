@@ -1,3 +1,4 @@
+import Phonetic from "./phonetic/phonetic"
 const Line = ({ ...props }) => {
     return (<div className='line' {...props}></div>);
 }
@@ -16,18 +17,6 @@ const Picture = ({ imgSrc, mediaSrc, ...props }) => {
     )
 }
 
-const Phonetic = ({ text, audio, ...props }) => {
-    return (
-        <>
-            <p>{text}</p>
-            <audio controls {...props}>
-                <source src={audio} type="audio/mpeg" />
-                Your borwser does not support audio playback
-            </audio >
-        </>
-    );
-}
-
 const Meaning = ({ pos, listItems, ...props }) => {
     return (
         <section {...props}>
@@ -43,21 +32,27 @@ const Meaning = ({ pos, listItems, ...props }) => {
     )
 }
 
-const Body = ({ data }) => {
-    let phonetics = <></>;
-    for (let i = 0; i < data['phonetics'].length; i++) {
-        if (data["phonetics"][i]['audio']) {
-            phonetics =
-                <>
-                    <Phonetic text={data['phonetics'][i]['text']} audio={data['phonetics'][i]['audio']} key={data['word']} />
-                </>
-            break;
+const Header = ({ datas }) => {
+    let phonetics = null;
+    for (let j = 0; j < datas.length; j++) {
+        const data = datas[j];
+        for (let i = 0; i < data['phonetics'].length; i++) {
+            if (data["phonetics"][i]['audio']) {
+                return (
+                    <section>
+                        <h1>{data['word']} </h1>
+                        {phonetics}
+                        <Phonetic text={data['phonetics'][i]['text']} audio={data['phonetics'][i]['audio']} key={data['word']} />
+                    </section>
+                );
+            }
         }
     }
+}
+
+const Body = ({ data }) => {
     return (
-        <div id='canvas'>
-            <h1>{data['word']} </h1>
-            {phonetics}
+        <div className='canvas'>
             <section>
                 {data['meanings'].map((val, index) => <Meaning pos={val['partOfSpeech']} listItems={val['definitions']} key={index} />)}
             </section>
@@ -69,4 +64,4 @@ const Body = ({ data }) => {
     )
 }
 
-export { Picture, Body };
+export { Picture, Body, Header };

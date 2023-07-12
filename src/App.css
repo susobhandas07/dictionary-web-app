@@ -2,18 +2,27 @@
     --option: #cecedf;
     --input-box: rgb(235, 226, 226);
     --link-color: #8c7cd9;
+    --line-color: #9b9191;
 }
+
+#root {
+    padding-inline: 1rem;
+}
+
+.canvas {
+    position: relative;
+    --extra: 20%;
+}
+
 
 @media (prefers-color-scheme:dark) {
     :root {
         --option: #404042;
         --input-box: rgb(49, 46, 46);
         --link-color: #aa9cdd;
+        --line-color: #a69b9b;
     }
+
 }
 
-@media (max-width:768px) {
-    #root {
-        padding-inline: 1rem;
-    }
-}
+@media (max-width:768px) {}

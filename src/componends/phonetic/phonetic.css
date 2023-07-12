@@ -1,0 +1,51 @@
+.audio-player {
+    float: right;
+    aspect-ratio: 1;
+    margin-top: -85px;
+    padding: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--input-box);
+}
+
+.container {
+    position: relative;
+    overflow: hidden;
+    width: 27px;
+    --roatation: 59deg;
+    aspect-ratio: inherit;
+}
+
+.side {
+    height: 24px;
+    width: 4px;
+    background-color: rgb(167, 41, 206);
+    border-radius: 2px;
+    /* transition: all 1000ms; */
+}
+
+.side:nth-child(1),
+.side:nth-child(3) {
+    left: 3px;
+    position: absolute;
+    border-radius: 55px;
+    background-color: black;
+}
+
+.side:nth-child(2) {
+    margin: 1px 0 0 3px;
+}
+
+.side:nth-child(1) {
+    rotate: calc(-1 * var(--roatation));
+    transform-origin: top;
+    top: 2px;
+    left: 2px;
+}
+
+.side:nth-child(3) {
+    transform-origin: bottom;
+    rotate: var(--roatation);
+    top: 1px;
+    left: 2px;
+}

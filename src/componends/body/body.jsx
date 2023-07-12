@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './body.css'
 import SearchIcon from '../../assets/icons8-search-50.png';
-import { Body } from "../componend";
+import { Body, Header } from "../componend";
 
 
 export default function main() {
@@ -24,7 +24,12 @@ export default function main() {
                 </label>
             </div>
             <div >
-                {data.length && data.map((data, index) => <Body data={data} key={index} />)}
+                {data.length &&
+                    <>
+                        <Header datas={data} key={data[0]["word"]} />
+                        {data.map((data, index) => <Body data={data} key={index} />)}
+                    </>
+                }
             </div>
         </>
     );
