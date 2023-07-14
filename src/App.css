@@ -1,9 +1,26 @@
-:root {
+:root,
+:root.light {
     --option: #cecedf;
-    --input-box: rgb(235, 226, 226);
+    --input-box: rgb(201, 195, 195);
     --link-color: #8c7cd9;
     --line-color: #9b9191;
+    --search-icon-background: rgb(225, 211, 211);
+    background-color: rgb(231, 228, 228);
+    color: #19191a;
 }
+
+
+
+:root.dark {
+    --option: #404042;
+    --input-box: rgb(49, 46, 46);
+    --link-color: #aa9cdd;
+    --line-color: #a69b9b;
+    --search-icon-background: #49494d;
+    background-color: #19191a;
+    color: rgb(231, 228, 228);
+}
+
 
 #root {
     padding-inline: 1rem;
@@ -14,15 +31,5 @@
     --extra: 20%;
 }
 
-
-@media (prefers-color-scheme:dark) {
-    :root {
-        --option: #404042;
-        --input-box: rgb(49, 46, 46);
-        --link-color: #aa9cdd;
-        --line-color: #a69b9b;
-    }
-
-}
 
 @media (max-width:768px) {}

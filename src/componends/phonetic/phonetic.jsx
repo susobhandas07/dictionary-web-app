@@ -19,8 +19,8 @@ export default function Phonetic({ text, audio, ...props }) {
                 //mid line
                 lines[1].animate([
                     { boxShadow: "10px 30px black" },
-                    { boxShadow: "10px 0 black", marginLeft: "5px" },
-                    { boxShadow: "10px 0 black", marginLeft: "5px" },
+                    { boxShadow: "10px 0 rgb(171, 10, 219)", marginLeft: "5px" },
+                    { boxShadow: "10px 0 rgb(171, 10, 219)", marginLeft: "5px" },
                     { boxShadow: "10px 30px black" }
                 ], transitionProperties),
                 //bottom line
@@ -31,7 +31,6 @@ export default function Phonetic({ text, audio, ...props }) {
                     { transform: "translateY(0px)" }
                 ], transitionProperties)
             ]
-            console.log(transitionProperties.duration);
             animations.forEach((animation) => { animation.pause() });
         });
         const playPauseAudio = () => {

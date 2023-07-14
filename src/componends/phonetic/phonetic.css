@@ -5,21 +5,21 @@
     padding: 1.5rem;
     border-radius: 50%;
     border: none;
-    background-color: var(--input-box);
+    background-color: rgba(209, 132, 233, 0.3);
 }
 
 .container {
+    --roatation: 59deg;
     position: relative;
     overflow: hidden;
     width: 27px;
-    --roatation: 59deg;
     aspect-ratio: inherit;
 }
 
 .side {
     height: 24px;
     width: 4px;
-    background-color: rgb(167, 41, 206);
+    background-color: rgb(171, 10, 219);
     border-radius: 2px;
     /* transition: all 1000ms; */
 }
@@ -29,8 +29,8 @@
     left: 3px;
     position: absolute;
     border-radius: 55px;
-    background-color: black;
 }
+
 
 .side:nth-child(2) {
     margin: 1px 0 0 3px;

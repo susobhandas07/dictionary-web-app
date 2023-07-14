@@ -4,11 +4,17 @@
 import Body from './componends/body/body'
 import Header from './componends/header/header'
 import './App.css'
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useTheme } from './contextProvider';
 
-function App() {
-  // const [count, setCount] = useState(0)
+export function App() {
 
+  const { context } = useTheme();
+  if (context.theme) {
+    document.documentElement.className = 'dark';
+  } else {
+    document.documentElement.className = "light";
+  }
 
   return (
     <>

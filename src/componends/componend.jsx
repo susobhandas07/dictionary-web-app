@@ -1,4 +1,5 @@
-import Phonetic from "./phonetic/phonetic"
+import Phonetic from "./phonetic/phonetic";
+import { useTheme } from "../contextProvider";
 const Line = ({ ...props }) => {
     return (<div className='line' {...props}></div>);
 }
@@ -9,11 +10,13 @@ const ListItem = ({ children, ...props }) => {
 
 const Picture = ({ imgSrc, mediaSrc, ...props }) => {
     // console.log(imgSrc);
+    const { context } = useTheme();
     return (
-        <picture>
-            <source media="(prefers-color-scheme:dark)" srcSet={mediaSrc} />
-            <img src={imgSrc} alt="icon" {...props} />
-        </picture>
+        <>
+            {context["theme"] === true
+                ? <img src={mediaSrc} alt="icon" {...props} />
+                : <img src={imgSrc} alt="icon" {...props} />}
+        </>
     )
 }
 
@@ -60,6 +63,15 @@ const Body = ({ data }) => {
                 <span className='fade'>Source</span>
                 <a style={{ color: "var(--link-color)" }} href={`https://en.wiktionary.org/wiki/${data['word']}`} target="_blank" >https://en.wikionary.org/wiki/{data['word']}</a>
             </section>
+        </div>
+    );
+}
+
+const Er404 = ({ data }) => {
+    return (
+        <div className="canvas">
+            <h3>{data.title}</h3>
+            <p>{data.message}</p>
         </div>
     )
 }
