@@ -44,13 +44,17 @@ const Header = ({ datas }) => {
                 return (
                     <section>
                         <h1>{data['word']} </h1>
-                        {phonetics}
                         <Phonetic text={data['phonetics'][i]['text']} audio={data['phonetics'][i]['audio']} key={data['word']} />
                     </section>
                 );
             }
         }
     }
+    return (
+        <section>
+            <h1>{datas[0]['word']}</h1>
+        </section>
+    );
 }
 
 const Body = ({ data }) => {
@@ -76,4 +80,4 @@ const Er404 = ({ data }) => {
     )
 }
 
-export { Picture, Body, Header };
+export { Picture, Body, Header, Er404 };

@@ -11,9 +11,9 @@
     border: none;
     background: transparent;
     font-weight: 500;
-    padding: 0.5rem 2rem;
+    padding: 0 1.5rem;
     color: inherit;
-
+    font-family: inherit;
 }
 
 #word:focus {
@@ -36,18 +36,23 @@
 #clear-btn {
     border: none;
     background: transparent;
-    font-size: 1.7em;
-    margin-top: -2px;
+    margin-top: 4px;
+    margin-right: min(20px, 5%);
 }
+
 
 /* search button */
 #search-btn {
     border: none;
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    padding: 0.5rem 2rem;
+    padding: 0.7rem min(2rem, 4%) 0.6rem;
     background-color: var(--search-icon-background);
-    font-size: 1.7em;
-    display: grid;
+}
+
+/* icons */
+
+.sub-icon {
+    width: 1.7rem;
 }
 
 
@@ -73,7 +78,7 @@ ul {
     content: "";
     border-bottom: 2px dotted var(--line-color);
     width: 100%;
-    margin-left: 2rem;
+    margin-left: 4%;
     margin-top: 0.1rem;
 }
 

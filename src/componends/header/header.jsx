@@ -25,7 +25,7 @@ export default function main() {
 
             <section className="header-cell" id="font-switcher">
                 <select name="font" id="font font-select" className="option hover-pointer" title="Font" value={context.font} onChange={(e) => handleChange({ "font": e.target.value })}>
-                    <option value="serif" >Serif</option>
+                    <option value="serif">Serif</option>
                     <option value="arial" >Arial</option>
                 </select>
             </section>

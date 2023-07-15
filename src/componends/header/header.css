@@ -9,12 +9,17 @@
 }
 
 /*font switcher*/
+#font-switcher {
+    background-color: var(--option);
+}
+
 .option {
     border: none;
     padding: 0.3rem 0.8rem;
     border-radius: 7px;
-    background: var(--option, #ece1e1);
+    background-color: var(--option);
     color: inherit;
+    font-family: inherit;
 }
 
 /* toggle switch */

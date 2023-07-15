@@ -1,0 +1,5 @@
+<svg width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg" >
+    <circle cx="100" cy="100" r="100" fill="rgba(242, 0, 0, 0.9)"/>
+    <rect style="transform-origin:center;rotate:45deg;" class="rotate" x="36px" y="90px" width="128px" height="20px" fill="white" rx="10px"/>
+    <rect style="transform-origin:center;rotate:45deg;" class="rotate" x="90px" y="36px" width="20px" height="128px" fill="white" rx="10px"/>
+</svg>

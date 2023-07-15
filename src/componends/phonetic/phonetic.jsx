@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./phonetic.css"
-export default function Phonetic({ text, audio, ...props }) {
+export default function Phonetic({ text = "", audio = "", ...props }) {
 
     let animations = [];
     useEffect(() => {

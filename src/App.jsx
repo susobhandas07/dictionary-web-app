@@ -15,6 +15,11 @@ export function App() {
   } else {
     document.documentElement.className = "light";
   }
+  if (context.font === "serif") {
+    document.body.style.fontFamily = 'Diphylleia, serif';
+  } else {
+    document.body.style.fontFamily = 'Nunito, sans-serif';
+  }
 
   return (
     <>
