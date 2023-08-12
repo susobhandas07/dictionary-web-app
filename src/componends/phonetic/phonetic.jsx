@@ -56,7 +56,7 @@ export default function Phonetic({ text = "", audio = "", ...props }) {
                 <source src={audio} type="audio/mpeg" />
                 Your borwser does not support audio playback
             </audio >
-            <button type="playpause" className="audio-player" id="playAudio">
+            <button type="playpause" className="audio-player hover-pointer" id="playAudio">
                 <div className='container'>
                     <div className="side" ></div>
                     <div className="side" ></div>

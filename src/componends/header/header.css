@@ -71,7 +71,7 @@
 }
 
 #switch:checked+#switch-cell {
-    background-color: rgb(167, 41, 206);
+    background-color: rgb(118, 80, 240);
 }
 
 @media (max-width:768px) {

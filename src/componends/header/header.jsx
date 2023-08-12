@@ -6,14 +6,14 @@ import SunIcon from "../../assets/icons8-sun-24.png";
 import SunIconActive from "../../assets/icons8-sun-24-active.png";
 import { useContext, useState } from "react";
 import { Picture } from '../componend';
-import { useTheme } from "../../contextProvider";
+import { getDefaults } from "../../contextProvider";
 import './header.css'
 
 
 export default function main() {
 
 
-    const { context, handleChange } = useTheme();
+    const { context, handleChange } = getDefaults();
     return (
         <header className="header flex">
             <section className="header-cell flex">

@@ -1,5 +1,5 @@
 import Phonetic from "./phonetic/phonetic";
-import { useTheme } from "../contextProvider";
+import { getDefaults } from "../contextProvider";
 const Line = ({ ...props }) => {
     return (<div className='line' {...props}></div>);
 }
@@ -10,7 +10,7 @@ const ListItem = ({ children, ...props }) => {
 
 const Picture = ({ imgSrc, mediaSrc, ...props }) => {
     // console.log(imgSrc);
-    const { context } = useTheme();
+    const { context } = getDefaults();
     return (
         <>
             {context["theme"] === true
@@ -58,10 +58,35 @@ const Header = ({ datas }) => {
 }
 
 const Body = ({ data }) => {
+    const synonyms = [], antonyms = [];
     return (
         <div className='canvas'>
             <section>
-                {data['meanings'].map((val, index) => <Meaning pos={val['partOfSpeech']} listItems={val['definitions']} key={index} />)}
+                {data['meanings'].map((val, index) => {
+                    for (let syns of Object.values(val['synonyms'])) {
+                        synonyms.push(syns);
+                    }
+                    for (let ants of Object.values(val['antonyms'])) {
+                        antonyms.push(ants);
+                    }
+                    return (<>
+                        <Meaning pos={val['partOfSpeech']} listItems={val['definitions']} key={index} />
+                        {synonyms.length > 0 &&
+                            <>
+                                <p className="fade">Synonyms</p>
+                                <ul className="flex" style={{ justifyContent: "flex-start", flexWrap: "wrap", gap: "2rem", paddingLeft: "0" }}>
+                                    {synonyms.map((val) => <li style={{ color: "rgb(115,80,240)", fontWeight: "bold", textTransform: "capitalize" }}>{val}</li>)}
+                                </ul>
+                            </>}
+                        {antonyms.length > 0 &&
+                            <>
+                                <p>Antonyms</p>
+                                <ul className="flex" style={{ justifyContent: "flex-start", flexWrap: "wrap", gap: "2rem", paddingLeft: "0" }}>
+                                    {antonyms.map((val) => <li style={{ color: "rgb(115,80,240)", fontWeight: "bold", textTransform: "capitalize" }}>{val}</li>)}
+                                </ul>
+                            </>}
+                    </>);
+                })}
             </section>
             <section>
                 <span className='fade'>Source</span>
